@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Security Tutorial</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 style="text-align: center"><i class="fa fa-user" style="color: darkblue"></i> Admin  </h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="container">
+                    <form th:action="@{/registration}" method="get" style="float: right; margin: 5px;">
+                        <button class="btn btn-success" type="Submit"
+                                style=" margin: 5px;">Registration
+                        </button>
+                    </form>
+                    <form th:action="@{/login}" method="POST" class="form-signin">
+
+                        <input type="text" id="email" name="email" th:placeholder="Email"
+                               class="form-control"/> <br/>
+                        <input type="password" th:placeholder="Password"
+                               id="password" name="password" class="form-control"/> <br/>
+
+                        <div align="center" th:if="${param.error}">
+                            <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
+                                th:text="Apply"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

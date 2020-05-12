@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Test Page</title>
+</head>
+
+<div layout:fragment="page_content" id="page_content" style="background-color: beige; height: 300px">
+    <h3>Ro'yxatdan o'tgan foydalanuvchilar</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr >
+            <th scope="col">#</th>
+            <th scope="col">Ismi</th>
+            <th scope="col">Familiyasi</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, stat : ${allUsers}">
+            <th scope="row" th:text="${stat.count}"></th>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <div th:each="role : ${user.roles}">
+                    <span th:text="${role.role}"></span>
+                </div>
+            </td>
+            <td>
+                <a th:href="@{/admin/user/update(id=${user.id})}"><i class="fa fa-edit"></i> </a>
+                <a th:href="@{/admin/user/remove(id=${user.id})}"><i class="fa fa-remove"></i> </a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>

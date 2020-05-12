@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest list</title>
+</head>
+
+
+
+
+
+
+<div layout:fragment="page_content" id="page_content" style="background-color: beige; height: 100%">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Add guest</h3>
+            <a href="/guest" class="btn btn-success">Ortga</a>
+            <div class="alert alert-success" role="alert" th:text="${message}" th:if="${message} != null"></div>
+            <form th:action="@{/guest/add}" th:object="${guest}" method="post">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input th:value="*{fullname}" name="fullname" type="text" class="form-control" id="fullname"
+                           placeholder="FullName">
+                </div>
+                <div class="form-group">
+                    <label for="serialpass">Serial Pass</label>
+                    <input th:value="*{serialpass}" name="serialpass" type="text" class="form-control" id="serialpass"
+                           placeholder="SerialPass">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input th:value="*{country}" name="country" type="text" class="form-control" id="country"
+                           placeholder="Country">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <input th:value="*{comment}" name="comment" type="text" class="form-control" id="comment"
+                           placeholder="Comment">
+                </div>
+                <div class="form-group">
+                    <label for="daydate">Date</label>
+                    <input th:value="*{daydate}" name="daydate" type="text" class="form-control" id="daydate"
+                           placeholder="Date">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

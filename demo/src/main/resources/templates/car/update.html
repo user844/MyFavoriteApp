@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>O'zgartirish</title>
+</head>
+
+
+<div layout:fragment="page_content" id="page_content" style="background-color: beige;">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>O'zgartirish</h3>
+            <a href="/car" class="btn btn-success">Ortga</a>
+            <div class="alert alert-success" role="alert" th:text="${message}" th:if="${message} != null"></div>
+            <form th:action="@{/car/update}" th:object="${car}" method="post">
+                <input type="hidden" th:value="*{id}" name="id">
+                <div class="form-group">
+                    <label for="name">Model</label>
+                    <input  th:value="*{model}" name="model" type="text" class="form-control" id="name" placeholder="Ismi">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Max Speed</label>
+                    <input  th:value="*{maxSpeed}" name="maxSpeed" type="text" class="form-control" id="lastname" placeholder="Ismi">
+                </div>
+                <div class="form-group">
+                    <label for="email">Price</label>
+                    <input  th:value="*{price}" name="price" type="text" class="form-control" id="email" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">O'zgartirish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest list</title>
+</head>
+
+<div layout:fragment="page_content" id="page_content" style="background-color: beige; height: 100%">
+    <h3><a th:href="@{/guest/add}" class="btn btn-success" style="float: right"><i class="fa fa-plus"></i> Add User</a> </h3>
+    <div class="alert alert-success" role="alert" th:text="${message}" th:if="${message} != null"></div>
+    <table class="table table-striped" id="myTable">
+        <thead>
+        <tr >
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Serial Pass</th>
+            <th scope="col">Country</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="guest, stat : ${guests}">
+            <th scope="row" th:text="${stat.count}"></th>
+            <td th:text="${guest.fullname}"></td>
+            <td th:text="${guest.serialpass}"></td>
+            <td th:text="${guest.country}"></td>
+            <td th:text="${guest.comment}"></td>
+            <td th:text="${guest.daydate}"></td>
+            <td>
+                <a th:href="@{/guest/update(id=${guest.id})}"><i class="fa fa-edit"></i> </a>
+                <form th:action="@{/guest/delete(id=${guest.id})}" method="post" style="display: inline">
+                    <button type="Submit" class="btn btn-link" style="display: inline">
+                        <i class="fa fa-remove"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

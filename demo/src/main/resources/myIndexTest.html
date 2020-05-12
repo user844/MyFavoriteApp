@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+</head>
+<body>
+<table id="table_id">
+    <thead>
+    <tr>
+        <th>Col1</th>
+        <th>Col2</th>
+        <th>Col3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>data-1a</td>
+        <td>data-1b</td>
+        <td>data-1c</td>
+    </tr>
+    <tr>
+        <td>data-2a</td>
+        <td>data-2b</td>
+        <td>data-2c</td>
+    </tr>
+    <tr>
+        <td>data-3a</td>
+        <td>data-3b</td>
+        <td>data-3c</td>
+    </tr>
+    <tr>
+        <td>data-4a</td>
+        <td>data-4b</td>
+        <td>data-4c</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>
+</body>
+</html>

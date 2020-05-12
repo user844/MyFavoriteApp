@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Test Page 2</title>
+</head>
+
+<div layout:fragment="page_content" id="page_content" style="background-color: darkkhaki; height: 400px">
+    <h3>Page 2</h3>
+    <div class="alert alert-info" style="display: none;" id="js-content"></div>
+    <a th:href="@{/test}">Go to page 1</a>
+</div>

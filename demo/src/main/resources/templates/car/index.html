@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Car list</title>
+</head>
+
+<div layout:fragment="page_content" id="page_content" style="background-color: beige; height: 300px">
+    <h3>Cars list <a th:href="@{/car/add}" class="btn btn-primary" style="float: right">Qo'shish</a> </h3>
+    <div class="alert alert-success" role="alert" th:text="${message}" th:if="${message} != null"></div>
+    <table class="table table-striped">
+        <thead>
+        <tr >
+            <th scope="col">#</th>
+            <th scope="col">Model</th>
+            <th scope="col">Max speed</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car, stat : ${cars}">
+            <th scope="row" th:text="${stat.count}"></th>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.maxSpeed}"></td>
+            <td th:text="${car.price}"></td>
+            <td>
+                <a th:href="@{/car/update(id=${car.id})}"><i class="fa fa-edit"></i> </a>
+                <form th:action="@{/car/delete(id=${car.id})}" method="post" style="display: inline">
+                    <button type="Submit" class="btn btn-link" style="display: inline">
+                        <i class="fa fa-remove"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
